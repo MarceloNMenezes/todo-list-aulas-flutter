@@ -3,11 +3,13 @@ class Task {
   String title;
   String descricao;
   bool isDone;
+  String prioridade;
 
   Task({
     this.id,
     this.title,
     this.descricao,
+    this.prioridade,
     this.isDone = false,
   });
 
@@ -15,6 +17,7 @@ class Task {
         id: json["id"],
         title: json["title"],
         descricao: json["description"],
+        prioridade: json["priority"],
         isDone: json["isDone"] == 1,
       );
 
@@ -23,6 +26,7 @@ class Task {
       "id": id,
       "title": title,
       "description": descricao,
+      "priority": prioridade,
       "isDone": isDone ? 1 : 0
     };
 

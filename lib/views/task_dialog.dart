@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/models/task.dart';
+import 'package:find_dropdown/find_dropdown.dart';
 
 class TaskDialog extends StatefulWidget {
   final Task task;
@@ -14,6 +15,7 @@ class _TaskDialogState extends State<TaskDialog> {
   final _controledetexto = TextEditingController();
   final _descricaoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  String _prioridade;
 
   Task _listatarefa = Task();
 
@@ -27,6 +29,7 @@ class _TaskDialogState extends State<TaskDialog> {
 
     _controledetexto.text = _listatarefa.title;
     _descricaoController.text = _listatarefa.descricao;
+    _prioridade = _listatarefa.prioridade;
   }
 
   @override
@@ -38,6 +41,18 @@ class _TaskDialogState extends State<TaskDialog> {
 
   @override
   Widget build(BuildContext context) {
+    var findDropdown = FindDropdown(
+      items: [
+        "1: Baixo",
+        "2: Médio",
+        "3: Prioritário ",
+        "4: Urgente",
+        "5: Emergência"
+      ],
+      label: "Nível de Prioridades",
+      onChanged: (String item) => print(_prioridade),
+      selectedItem: _prioridade,
+    );
     return AlertDialog(
       title: Text(widget.task == null ? 'Nova tarefa' : 'Editar tarefas'),
       content: Form(
@@ -67,6 +82,7 @@ class _TaskDialogState extends State<TaskDialog> {
                   }
                   return null;
                 }),
+            findDropdown,
           ],
         ),
       ),
@@ -83,6 +99,7 @@ class _TaskDialogState extends State<TaskDialog> {
             if (_formKey.currentState.validate()) {
               _listatarefa.title = _controledetexto.value.text;
               _listatarefa.descricao = _descricaoController.text;
+              _listatarefa.prioridade = _prioridade;
               Navigator.of(context).pop(_listatarefa);
             }
           },

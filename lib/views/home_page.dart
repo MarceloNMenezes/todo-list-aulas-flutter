@@ -30,6 +30,10 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  double getPercentage() {
+    return _indicator * 100;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +41,12 @@ class _HomePageState extends State<HomePage> {
         title: Text('Lista de Tarefas'),
         actions: <Widget>[
           new LinearPercentIndicator(
-            width: 140.0,
-            lineHeight: 14.0,
+            width: 120.0,
+            lineHeight: 15.0,
             percent: _indicator,
+            center: new Text(" ${getPercentage()}%"),
             backgroundColor: Colors.white,
-            progressColor: Colors.cyanAccent,
+            progressColor: Colors.deepPurple[100],
           ),
         ],
       ),
@@ -58,7 +63,11 @@ class _HomePageState extends State<HomePage> {
       );
     } else {
       return ListView.separated(
-        separatorBuilder: (BuildContext context, int index) => Divider(),
+        separatorBuilder: (
+          BuildContext context,
+          int index,
+        ) =>
+            Divider(),
         itemCount: _taskList.length,
         itemBuilder: _buildTaskItemSlidable,
       );
@@ -159,7 +168,7 @@ class _HomePageState extends State<HomePage> {
 
     Flushbar(
       title: "Exclusão de tarefas",
-      message: "Tarefa \"${deletedTask.title}\" removida.",
+      message: "Tarefa ${deletedTask.title} removida.",
       margin: EdgeInsets.all(8),
       borderRadius: 8,
       duration: Duration(seconds: 3),
