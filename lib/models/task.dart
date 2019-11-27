@@ -1,20 +1,20 @@
 class Task {
   int id;
   String title;
-  String description;
+  String descricao;
   bool isDone;
 
   Task({
     this.id,
     this.title,
-    this.description,
+    this.descricao,
     this.isDone = false,
   });
 
   factory Task.fromMap(Map<String, dynamic> json) => Task(
         id: json["id"],
         title: json["title"],
-        description: json["description"],
+        descricao: json["description"],
         isDone: json["isDone"] == 1,
       );
 
@@ -22,7 +22,7 @@ class Task {
     Map<String, dynamic> map = {
       "id": id,
       "title": title,
-      "description": description,
+      "description": descricao,
       "isDone": isDone ? 1 : 0
     };
 
