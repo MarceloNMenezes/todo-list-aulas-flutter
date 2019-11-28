@@ -5,7 +5,9 @@ Aplicativo para gerenciar as tarefas do dia-a-dia criado para disciplina de Prog
 Tutorial de criação deste app: http://bit.ly/2jXXU7Q
 
 <p align="center">
-    <img src="https://miro.medium.com/max/1440/1*oUhhTFGunBMuh4Av-7rR7A.png" width="800"/>
+    <img src="https://i.ibb.co/P9LcW7C/Whats-App-Image-2019-11-28-at-11-39-09.jpg" width="400"/>
+    <img src="https://i.ibb.co/7G8DCYR/Whats-App-Image-2019-11-28-at-11-39-09-1.jpg" width="400"/>
+    <img src="https://i.ibb.co/P9LcW7C/Whats-App-Image-2019-11-28-at-11-39-09.jpg" width="400"/>
 </p>
 
 ## RA
